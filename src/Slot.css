@@ -1,0 +1,54 @@
+/* Container für die gesamte Slot-Maschine */
+.slot-machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Container für die Slots */
+.slots {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Styling für jedes Slot-Element */
+.slot {
+    margin: 0 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* Bildgröße und Styling für die Slot-Symbole */
+.slot-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Styling für den Dreh-Button */
+.spin-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.spin-button:hover {
+    background-color: #45a049;
+}
