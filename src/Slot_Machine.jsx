@@ -52,10 +52,28 @@ export default function SlotMachine() {
 
     function checkwin(slots) {
         const [slot1, slot2, slot3] = slots;
+        const fruchte =[Kirsche,Lemon, Watermelon].map(sym=>symbols.indexOf(sym))
+        const plane= [Plane].map(sym=>symbols.indexOf(sym))
+        const tower= [Skyscraper].map(sym=>symbols.indexOf(sym))
+
+
         if (slot1 === slot2 && slot2 === slot3) {
-            const gewinn = einsatz * 4;
+            const gewinn = einsatz * 45;
             setMoney((prev) => prev + gewinn);
             alert("Jackpot! Du hast " + gewinn + " Franken gewonnen! 🎉");
+        }
+        else if(fruchte.includes(slot1) && fruchte.includes(slot2) && fruchte.includes(slot3))
+        {
+            const gewinn = einsatz * 10;
+            setMoney((prev) => prev + gewinn);
+            alert(" Du hast " + gewinn + " Franken gewonnen! 🍒🍋🍉");
+        }
+        else if(plane.includes(slot1) && tower.includes(slot2) && tower.includes(slot3)){
+            const gewinn = einsatz * 911
+            setMoney((prev) => prev + gewinn);
+            alert(" Du hast " + gewinn + " Franken gewonnen! ");
+
+
         }
     }
 
