@@ -6,6 +6,8 @@ import Plane from "./assets/Plane.png";
 import Seven from "./assets/Seven.png";
 import Skyscraper from "./assets/Skyscraper.png";
 import Watermelon from "./assets/watermelon.png";
+import Gamba from "./assets/gamba.gif";
+import Loss from  "./assets/los.png"
 import "./Slot.css";
 
 export default function SlotMachine() {
@@ -27,11 +29,14 @@ export default function SlotMachine() {
         Watermelon,
     ];
 
+    const [gamblewin, setGamblewin] = useState(false);
+
     function handleLangChange(event) {
         setLang(event.target.value);
     }
 
     function spin() {
+        setGamblewin(false);
         if (money >= einsatz && einsatz > 0) {
             setSpinning(true);
             const spinIterations = 10;
@@ -82,6 +87,7 @@ export default function SlotMachine() {
         if (slot1 === slot2 && slot2 === slot3) {
             const gewinn = einsatz * 45;
             setMoney((prev) => prev + gewinn);
+            setGamblewin(true)
             if (lang === "de") {
                 alert("Jackpot! Du hast " + gewinn + " Franken gewonnen! 🎉");
             } else if (lang === "en") {
@@ -93,6 +99,7 @@ export default function SlotMachine() {
         else if (fruchte.includes(slot1) && fruchte.includes(slot2) && fruchte.includes(slot3)) {
             const gewinn = einsatz * 10;
             setMoney((prev) => prev + gewinn);
+            setGamblewin(true)
             if (lang === "de") {
                 alert(" Du hast " + gewinn + " Franken gewonnen! 🍒🍋🍉");
             } else if (lang === "en") {
@@ -104,6 +111,7 @@ export default function SlotMachine() {
         else if (plane.includes(slot1) && tower.includes(slot2) && tower.includes(slot3)) {
             const gewinn = einsatz * 911;
             setMoney((prev) => prev + gewinn);
+            setGamblewin(true)
             if (lang === "de") {
                 alert(" Du hast " + gewinn + " Franken gewonnen! 🛬🏙️");
             } else if (lang === "en") {
@@ -168,9 +176,12 @@ export default function SlotMachine() {
                         />
                     </div>
                     <div className="highscore">🏆 Highscore: {Highscore} Fr</div>
+                    {gamblewin ? <img src={Gamba} alt="You WIN" height={113} width={240}/> : null}
+                    {!gamblewin ? <img src={Loss} alt="You LOSE" height={113} width={240} /> : null}
                 </div>
                 <p>GitHub at: <a href="https://github.com/Seeby24/Slot_Machine">https://github.com/Seeby24/Slot_Machine</a></p>
             </div>
+
         </>
     );
 }
