@@ -1,90 +1,93 @@
-/* Container für die gesamte Slot-Maschine */
 .slot-machine {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f1f1f1;
+    background: #333;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 0 auto;
-    color: #222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 300px;
+    font-family: Arial, sans-serif;
 }
 
-/* Container für die Slots */
 .slots {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-/* Styling für jedes Slot-Element */
 .slot {
-    margin: 0 10px;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ddd;
-    border-radius: 5px;
+    margin: 0 5px;
 }
 
-/* Bildgröße und Styling für die Slot-Symbole */
 .slot-image {
     width: 80px;
     height: 80px;
     object-fit: contain;
+    transition: transform 0.5s ease-out;
 }
 
-/* Styling für den Dreh-Button */
+@keyframes spin {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(3600deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+.slot-image.spin {
+    animation: spin 1s ease-in-out;
+}
+
 .spin-button {
-    background-color: #4caf50;
-    color: white;
     padding: 10px 20px;
-    font-size: 18px;
+    background-color: #ff8c00;
     border: none;
-    border-radius: 5px;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
     margin-bottom: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .spin-button:hover {
-    background-color: #45a049;
+    background-color: #e67e00;
 }
 
 .status-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    color: #222;
+    font-size: 14px;
 }
 
-.status-container div {
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
+.highscore,
+.money {
+    margin: 5px 0;
 }
 
 .einsatz-input {
-    margin-left: 10px;
-    padding: 5px 10px;
-    font-size: 16px;
+    width: 60px;
+    padding: 5px;
+    margin: 10px 0;
+    text-align: center;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 80px;
 }
 
-.highscore {
-    color: #ff5722;
-    font-size: 20px;
-    font-weight: bold;
+label {
+    margin: 5px;
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
 }
