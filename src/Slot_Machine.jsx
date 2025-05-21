@@ -12,7 +12,7 @@ export default function SlotMachine() {
     const [slots, setSlots] = useState([Glocke, Lemon, Kirsche]);
     const [money, setMoney] = useState(500);
     const [einsatz, setEinsatz] = useState(0);
-    const [Higscore,setHighscore] = useState(0)
+    const [Highscore,setHighscore] = useState(0)
 
     const symbols = [
         null,
@@ -37,7 +37,7 @@ export default function SlotMachine() {
 
             setTimeout(() => {
                 checkwin(newSlots);
-                if(money>Higscore){
+                if(money>Highscore){
                     setHighscore(money)
                 }
             }, 300);
@@ -110,8 +110,9 @@ export default function SlotMachine() {
                             className="einsatz-input"
                         />
                     </div>
-                    <div className="highscore">🏆 Highscore: {Higscore} Fr</div>
+                    <div className="highscore">🏆 Highscore: {Highscore} Fr</div>
                 </div>
+                <p>GitHub at: <a href="https://github.com/Seeby24/Slot_Machine">https://github.com/Seeby24/Slot_Machine</a></p>
             </div>
         </>
     );
