@@ -85,7 +85,7 @@ export default function SlotMachine() {
             if (lang === "de") {
                 alert("Jackpot! Du hast " + gewinn + " Franken gewonnen! 🎉");
             } else if (lang === "en") {
-                alert("Jackpot! You won " + gewinn + " Dollar! 🎉");
+                alert("Jackpot! You won " + gewinn + " Dollars! 🎉");
             } else {
                 alert("Sprache nicht unterstützt | Language not supported");
             }
@@ -96,7 +96,7 @@ export default function SlotMachine() {
             if (lang === "de") {
                 alert(" Du hast " + gewinn + " Franken gewonnen! 🍒🍋🍉");
             } else if (lang === "en") {
-                alert("You won " + gewinn + " Dollar! 🍒🍋🍉");
+                alert("You won " + gewinn + " Dollars! 🍒🍋🍉");
             } else {
                 alert("Sprache nicht unterstützt | Language not supported");
             }
@@ -107,7 +107,7 @@ export default function SlotMachine() {
             if (lang === "de") {
                 alert(" Du hast " + gewinn + " Franken gewonnen! 🛬🏙️");
             } else if (lang === "en") {
-                alert("You won " + gewinn + " Dollar! 🛬🏙️");
+                alert("You won " + gewinn + " Dollars! 🛬🏙️");
             } else {
                 alert("Sprache nicht unterstützt | Language not supported");
             }
@@ -160,7 +160,7 @@ export default function SlotMachine() {
                     <div>
                         Einsatz:
                         <input
-                            type="number"
+                            type="text"
                             onChange={handleEinsatzChange}
                             value={einsatz}
                             min="1"
