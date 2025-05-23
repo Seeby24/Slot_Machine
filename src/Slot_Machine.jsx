@@ -13,6 +13,7 @@ export default function SlotMachine() {
     const [money, setMoney] = useState(500);
     const [einsatz, setEinsatz] = useState(0);
     const [Higscore,setHighscore] = useState(0)
+    const [isspinning,setIsSpinning] = useState(false)
 
     const symbols = [
         null,
@@ -26,7 +27,9 @@ export default function SlotMachine() {
     ];
 
     function spin() {
+        if (isspinning) return;
         if (money >= einsatz && einsatz > 0) {
+            setIsSpinning(true);
             const newSlots = [
                 Math.floor(Math.random() * 7) + 1,
                 Math.floor(Math.random() * 7) + 1,
@@ -36,13 +39,11 @@ export default function SlotMachine() {
             setMoney((prev) => prev - einsatz);
 
             setTimeout(() => {
+                setIsSpinning(false);
                 checkwin(newSlots);
-                if(money>Higscore){
-                    setHighscore(money)
-                }
-            }, 300);
+            }, 500);
         } else {
-            alert("Du hast kein Geld du broker penis");
+            alert("Du hast nicht genug Geld, du broker Penis ");
         }
     }
 
@@ -94,7 +95,10 @@ export default function SlotMachine() {
                     ))}
                 </div>
 
-                <button className="spin-button" onClick={spin}>
+                <button className="spin-button"
+                        onClick={spin}
+                        disabled={isspinning}
+                >
                     Drehen
                 </button>
 
